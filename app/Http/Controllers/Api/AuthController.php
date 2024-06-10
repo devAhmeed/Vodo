@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\LoginUserRequest;
-use App\Http\Requests\User\CreateUserRequest;
+use App\Http\Requests\Api\User\LoginUserRequest;
+use App\Http\Requests\Api\User\CreateUserRequest;
 
 class AuthController extends Controller
 {

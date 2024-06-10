@@ -31,4 +31,11 @@ Route::group(
             Route::post('logout', [\App\Http\Controllers\Api\AuthController::class, 'logout'])->middleware('auth:sanctum');
         });
 
+
+        Route::group(['prefix' => 'profile' , 'middleware' => 'auth:sanctum'], function () {
+            Route::post('update', [\App\Http\Controllers\Api\UserController::class, 'update']);
+            // Route::put('update', [\App\Http\Controllers\Api\UserController::class, 'update']);
+
+        });
+
     },);
