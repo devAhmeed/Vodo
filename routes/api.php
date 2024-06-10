@@ -35,6 +35,14 @@ Route::group(
         Route::group(['prefix' => 'profile' , 'middleware' => 'auth:sanctum'], function () {
             Route::post('update', [\App\Http\Controllers\Api\UserController::class, 'update']);
             // Route::put('update', [\App\Http\Controllers\Api\UserController::class, 'update']);
+        });
+
+
+        Route::group(['prefix' => 'notes' , 'middleware' => 'auth:sanctum'], function () {
+            Route::get('/', [\App\Http\Controllers\Api\NoteController::class, 'index']);
+            Route::post('create', [\App\Http\Controllers\Api\NoteController::class, 'create']);
+            Route::post('update/{id}', [\App\Http\Controllers\Api\NoteController::class, 'update']);
+            Route::post('delete/{id}', [\App\Http\Controllers\Api\NoteController::class, 'delete']);
 
         });
 

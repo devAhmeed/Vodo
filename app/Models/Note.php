@@ -21,7 +21,7 @@ class Note extends Model
         /**
      * Get the User of specific note.
      */
-    public function post(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
