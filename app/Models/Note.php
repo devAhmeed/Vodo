@@ -11,7 +11,12 @@ class Note extends Model
 {
     use HasFactory , SoftDeletes;
 
+    protected $fillable = [
+        'title',
+        'content',
+        'user_id',
 
+    ];
 
         /**
      * Get the User of specific note.
