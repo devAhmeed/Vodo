@@ -47,7 +47,7 @@ class NoteController extends Controller
     {
         $user = auth()->user();
         $note = Note::query()->withTrashed()->find($id);
-
+        if(!$note) return apiResponse(false,__('note.not_found'),null,'not_found');
         if($note->user_id != $user->id) return apiResponse(false,__('note.unauthorized_access'),null,'unauthorized_access');
 
         $note->forceDelete();
