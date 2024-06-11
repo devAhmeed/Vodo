@@ -6,7 +6,7 @@
             <h2 class="text-2xl font-bold uppercase mb-1">
                 Log In
             </h2>
-            <p class="mb-4">Log in to post Jobs</p>
+            <p class="mb-4">Log in to create Your Notes</p>
         </header>
 
         <form action="{{ route('login') }}" method="POST">

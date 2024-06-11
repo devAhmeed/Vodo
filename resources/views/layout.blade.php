@@ -45,11 +45,11 @@
 
                 </li>
                 <li>
-                    <a href="/jobs/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
-                        Manage Jobs</a>
+                    <a href="{{ route('manageNotes') }}" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
+                        Manage Notes</a>
                 </li>
                 <li>
-                    <form action="{{route('logout')}}" method="POST" class="inline">
+                    <form action="{{ route('logout') }}" method="POST" class="inline">
                         @csrf
                         <button type="submit">
                             <i class="fa-solid fa-right-from-bracket"></i> Logout
@@ -77,7 +77,7 @@
         class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-24 mt-24 opacity-90 md:justify-center">
         <p class="ml-2">Copyright &copy; 2024, All Rights reserved to NoteApp</p>
 
-        <a href="/jobs/create" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Create Note</a>
+        <a href="{{route('createNotes')}}" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Create Note</a>
     </footer>
     <x-flash-message />
 </body>

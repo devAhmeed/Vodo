@@ -36,11 +36,11 @@ class UpdateUserRequest extends FormRequest
 
 
     public function update(){
+        DB::beginTransaction();
         try {
             $data = $this->validated();
             $data['password'] = bcrypt($data['password']);
             $user = auth()->user();
-            DB::beginTransaction();
             if (!auth()->user()) return apiResponse(false, __('user.not_found'), null, 'bad_request');
             $user->update($data);
             $user->refresh();

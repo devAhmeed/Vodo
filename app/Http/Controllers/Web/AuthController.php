@@ -10,7 +10,7 @@ use App\Http\Requests\Web\User\CreateUserRequest;
 class AuthController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display Login Page For The User
      */
     public function signIn()
     {
@@ -19,7 +19,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display The Signup Page for the user
      */
     public function signUp()
     {
@@ -27,7 +27,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store New User
      */
     public function register(CreateUserRequest $request)
     {
@@ -35,7 +35,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Authenticate User
      */
     public function login(LoginUserRequest $request)
     {
@@ -58,16 +58,9 @@ class AuthController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 
         /**
-     * Remove the specified resource from storage.
+     * Logout User
      */
     public function logout(Request $request)
     {

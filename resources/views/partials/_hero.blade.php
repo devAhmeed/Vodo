@@ -9,10 +9,12 @@
         <p class="text-2xl text-gray-200 font-bold my-4">
             Create and Mange Your Notes Anywhere & Anytime.
         </p>
-        <div>
-            <a href="register.html"
-                class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black">Sign
-                Up to Create your Note</a>
-        </div>
+        @unless (auth()->user())
+            <div>
+                <a href="{{route('signup')}}"
+                    class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black">Sign
+                    Up to Create your Note</a>
+            </div>
+        @endunless
     </div>
 </section>
