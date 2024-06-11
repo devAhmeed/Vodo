@@ -3,11 +3,14 @@
 namespace App\Http\Requests\Web\Note;
 
 use App\Models\Note;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Http\FormRequest;
+use Elegant\Sanitizer\Laravel\SanitizesInput;
 
 class CreateNoteRequest extends FormRequest
 {
+    use SanitizesInput;
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -26,6 +29,14 @@ class CreateNoteRequest extends FormRequest
         return [
             'title' => 'required|string|max:50',
             'content' => 'required|string',
+        ];
+    }
+
+        public function filters()
+    {
+        return [
+            'title' => 'trim|empty_string_to_null|capitalize|escape',
+            'content' => 'trim|empty_string_to_null|escape',
         ];
     }
 

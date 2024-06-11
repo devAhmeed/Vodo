@@ -5,9 +5,11 @@ namespace App\Http\Requests\Web\User;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
+use Elegant\Sanitizer\Laravel\SanitizesInput;
 
 class LoginUserRequest extends FormRequest
 {
+    use SanitizesInput;
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -26,6 +28,13 @@ class LoginUserRequest extends FormRequest
         return [
             'username'=>'required|string|exists:users,username',
             'password'=>'required|string'
+        ];
+    }
+
+        public function filters()
+    {
+        return [
+            'username' => 'trim|empty_string_to_null|escape',
         ];
     }
 

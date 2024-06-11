@@ -6,9 +6,11 @@ use App\Models\User;
 use App\Rules\Password;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Http\FormRequest;
+use Elegant\Sanitizer\Laravel\SanitizesInput;
 
 class CreateUserRequest extends FormRequest
 {
+    use SanitizesInput;
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -29,6 +31,14 @@ class CreateUserRequest extends FormRequest
             'username'=>'required|string|unique:users',
             'email'=>'required|string|email|unique:users',
             'password'=> ['required' , 'string' , new Password]
+        ];
+    }
+    public function filters()
+    {
+        return [
+            'name' => 'trim|empty_string_to_null|capitalize|escape',
+            'username' => 'trim|empty_string_to_null|escape',
+            'email' => 'trim|empty_string_to_null|lowercase|escape',
         ];
     }
 
